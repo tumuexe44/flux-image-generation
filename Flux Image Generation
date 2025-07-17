@@ -1,0 +1,661 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        420,
+        -60
+      ],
+      "id": "c2ad9b4c-6ee9-453b-9cc0-c49e9018414d",
+      "name": "Form",
+      "webhookId": "05622934-bd06-4c4e-91e9-cc9e52134c8f"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9ec60f33-b940-40a6-9f8a-cb944b7065f1",
+              "name": "stylePrompt",
+              "type": "string",
+              "value": "=üçte bir kuralı, altın oran, hiper-maksimalist, canlı neon, yüksek kontrast, octane render, fotogerçekçilik, 8k ::7 --ar 16:9 --s 1000\n\nEkrandan fırlıyormuş gibi görünen cesur neon renkler ve eğlenceli şekillerle dolu, enerjik ve neşeli bir sahne tasarla. Görüntü, neşe ve hareket hissi uyandırmalı; akışkan, organik formlar ve abartılı, çizgi film tarzı oranlar kullanılmalı. Zıt ve doygun tonlar ile dinamik aydınlatma kullanarak canlı bir atmosfer oluştur. Oyuncu bir görsel akış yaratmak için asimetrik ve dengeli kompozisyonları bir arada kullan. 8K çözünürlükte, Octane Render ile canlı, parlak dokular ve fotogerçekçi aydınlatma efektleriyle hiper-maksimalist bir yaklaşımla render al"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "cdef2b58-8149-4bbe-a367-052ec0bece81",
+      "name": "Vivid Pop Explosion",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1080,
+        60
+      ],
+      "notesInFlow": true,
+      "typeVersion": 3.4,
+      "notes": " "
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9ec60f33-b940-40a6-9f8a-cb944b7065f1",
+              "name": "stylePrompt",
+              "type": "string",
+              "value": "=üçte bir kuralı, asimetrik kompozisyon, glitch art, pikselleşme, VHS paraziti, octane render, unreal engine, 8k ::7 --ar 16:9 --s 1200\n\nDijital çürüme ve bozulmuş görsellerle dolu, bozulmuş bir post-analog dünya tasarla. Parçalanmış bir estetik yaratmak için pikselleşmiş öğeler, VHS paraziti ve neon bozulmalar kullan. Soluk arka planlara karşı cesur ve zıt renkler kullanarak yüksek kontrastlı, dünya dışı bir his oluştur. Kompozisyon, kaotik ama kasıtlı bir görsel dengeye odaklanan asimetrik kurallara uygun olmalı"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "76fbf8df-1c8b-4af7-b9be-000793460ff7",
+      "name": "Post-Analog Glitchscape",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1080,
+        -520
+      ],
+      "notesInFlow": true,
+      "typeVersion": 3.4,
+      "notes": " "
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9ec60f33-b940-40a6-9f8a-cb944b7065f1",
+              "name": "stylePrompt",
+              "type": "string",
+              "value": "=Include: "
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "81014d93-13b1-4198-abf6-48ea98cbc52f",
+      "name": "None",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1080,
+        240
+      ],
+      "notesInFlow": true,
+      "typeVersion": 3.4,
+      "notes": " "
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n \"formSubmittedText\": \"Flux API failed. It does this ~10% of the time. Refresh and try again.\"\n}",
+        "options": {}
+      },
+      "id": "cc684037-1351-4570-8d84-bf1272944ee5",
+      "name": "Respond with error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [
+        -480,
+        -260
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "path": "flux4free",
+        "formTitle": "flux.schnell Resim Oluşturucu",
+        "formDescription": "Flux ile resim oluşturma formu",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Prompt to flux",
+              "fieldType": "textarea",
+              "placeholder": " An astronaut riding a horse in 35mm style",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Style",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Hyper-Surreal Escape"
+                  },
+                  {
+                    "option": "Neon Fauvism"
+                  },
+                  {
+                    "option": "Post-Analog Glitchscape"
+                  },
+                  {
+                    "option": "AI Dystopia"
+                  },
+                  {
+                    "option": "Vivid Pop Explosion"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "989225af-0927-470b-b778-bea0dc830bde",
+      "name": "n8n Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "position": [
+        -1740,
+        -240
+      ],
+      "webhookId": "a35eb005-f795-4c85-9d00-0fe9797cb509",
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.Style }}",
+                    "rightValue": "Hyper-Surreal Escape",
+                    "id": "4cc70972-93ef-4451-8ea9-39763683a955"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Hyper-Surreal Escape"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "106969fa-994c-4b1e-b693-fc0b48ce5f3d",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.Style }}",
+                    "rightValue": "Post-Analog Glitchscape"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Post-Analog Glitchscape"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "24318e7d-4dc1-4369-b045-bb7d0a484def",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.Style }}",
+                    "rightValue": "AI Dystopia"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "AI Dystopia"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "a80911ff-67fc-416d-b135-0401c336d6d8",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.Style }}",
+                    "rightValue": "Neon Fauvism"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Neon Fauvism"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "7fdeec28-194e-415e-8da2-8bac90e4c011",
+                    "operator": {
+                      "name": "filter.operator.equals",
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $json.Style }}",
+                    "rightValue": "Vivid Pop Explosion"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Vivid Pop Explosion"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "324989a4-1a6c-4586-bbab-cd2ead7daf3b",
+      "name": "Route by style",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        -1460,
+        -300
+      ],
+      "typeVersion": 3.1
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "=<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n <meta charset=\"UTF-8\">\n <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n <title>Flux Image Generation Result</title>\n <style>\n body {\n font-family: 'Open Sans', Tahoma, Geneva, Verdana, sans-serif;\n display: flex;\n flex-direction: column;\n align-items: center;\n justify-content: center;\n min-height: 100vh;\n background-color: #121212;\n color: #e0e0e0;\n }\n .container {\n margin-top: 2em;\n width: 90%;\n max-width: 670px; /* Increased the max-width for the main image area */\n text-align: center;\n background: #1e1e1e;\n padding: 24px;\n border-radius: 12px;\n box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);\n margin-bottom: 24px;\n }\n .image-container {\n margin-bottom: 20px;\n }\n .image-container img {\n max-width: 100%;\n height: auto;\n border-radius: 12px;\n border: 2px solid #333;\n }\n .style-text {\n font-size: 18px;\n margin-bottom: 20px;\n color: #bbb;\n }\n </style>\n</head>\n<body>\n <div class=\"container\">\n <div class=\"image-container\">\n <img src=\"{{ $('Resmi Binary Olarak Getir').item.json.data[0].url }}\" alt=\"Generated Image\" />\n </div>\n <div class=\"style-text\">Style: {{ $('Route by style').item.json.Style }}</div>\n </div>\n </div>\n</body>\n</html>\n",
+        "options": {}
+      },
+      "id": "1393e168-933b-4c04-ac64-e319634b1ced",
+      "name": "Serve webpage",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [
+        -100,
+        -500
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.together.xyz/v1/images/generations",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "black-forest-labs/FLUX.1-schnell-Free"
+            },
+            {
+              "name": "prompt",
+              "value": "=Prompt: {{ $('n8n Form Trigger').item.json['Prompt to flux'] }} \n\nStyle: {{ $json.stylePrompt }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "955e5a5e-ee69-44ee-adf2-761060082fc1",
+      "name": "Resim Oluştur(together.ai)",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        -720,
+        -280
+      ],
+      "notesInFlow": true,
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "4Eq0IUCJ6GDX9JUq",
+          "name": "Bearer Auth account"
+        }
+      },
+      "onError": "continueErrorOutput",
+      "notes": " "
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Resim Oluştur(together.ai)').item.json.data[0].url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -500,
+        -500
+      ],
+      "id": "317168bb-4f3d-40fb-ad18-a717b3ce2cca",
+      "name": "Resmi Binary Olarak Getir"
+    },
+    {
+      "parameters": {
+        "name": "={{ $json.id }}.jpg",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1xef5J6pfj7D8bnzQqPtqwAFqTlG9CdAf",
+          "mode": "list",
+          "cachedResultName": "ai images",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1xef5J6pfj7D8bnzQqPtqwAFqTlG9CdAf"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -300,
+        -500
+      ],
+      "id": "9fdf9488-f88b-4c92-b463-4ad2ab5111f2",
+      "name": "Google Drive Yükle",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "6xI6N8k3yy1i8e6s",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9ec60f33-b940-40a6-9f8a-cb944b7065f1",
+              "name": "stylePrompt",
+              "type": "string",
+              "value": "=altın oran, üçte bir kuralı, cyberpunk, glitch art, octane render, sinematik gerçekçilik, 8k ::7 --ar 16:9 --s 1000\nGerçekliği büken, hiper-gerçekçi ama aynı zamanda sürreal bir manzara oluştur. Rüya gibi unsurlar ve abartılı oranlar içersin. Canlı, neredeyse neon renkler kullan ve hayranlık, oyun ve fantezi duygusuna odaklan"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "3e28fbe8-aa80-4a72-8d57-9292013f1216",
+      "name": "Hyper-Surreal Escape",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1080,
+        -700
+      ],
+      "notesInFlow": true,
+      "typeVersion": 3.4,
+      "notes": " "
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9ec60f33-b940-40a6-9f8a-cb944b7065f1",
+              "name": "stylePrompt",
+              "type": "string",
+              "value": "=asimetrik kompozisyon, altın oran, neon renkler, soyut formlar, octane render, sinematik gerçekçilik, unreal engine, 8k ::7 --ar 16:9 --s 1000\nGerçeklikten kopan neon renkler ve akışkan şekiller kullanarak cesur, canlı bir kompozisyon oluştur. Soyut formlara odaklan; Fovizm’in abartılı renk paletini modern dijital sanat teknikleriyle harmanla. Asimetrik kompozisyon ve dinamik aydınlatma kullan. Canlı ve yüksek enerjili bir estetikle render al"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "357fad45-ff63-4228-96d0-9cf5b0a4793d",
+      "name": "Neon Fauvism",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1080,
+        -140
+      ],
+      "notesInFlow": true,
+      "typeVersion": 3.4,
+      "notes": " "
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9ec60f33-b940-40a6-9f8a-cb944b7065f1",
+              "name": "stylePrompt",
+              "type": "string",
+              "value": "=altın oran, üçte bir kuralı, cyberpunk, glitch art, octane render, sinematik gerçekçilik, 8k ::7 --ar 16:9 --s 1000\n\nMetalik dokular, dijital bozulmalar ve neon ışıklarla dolu, futuristik bir cyberpunk distopyası oluştur. Soğuk, distopik yapıları organik yaşam izleriyle harmanla. Görsel derinliği artırmak için fotogerçekçi aydınlatma ve dinamik yansımalar kullan"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "83ef706d-617c-4054-b3af-6f3cd56ca9ae",
+      "name": "AI Dystopia",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -1080,
+        -320
+      ],
+      "notesInFlow": true,
+      "typeVersion": 3.4,
+      "notes": " "
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "None": {
+      "main": [
+        [
+          {
+            "node": "Resim Oluştur(together.ai)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by style": {
+      "main": [
+        [
+          {
+            "node": "Hyper-Surreal Escape",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Post-Analog Glitchscape",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Dystopia",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Neon Fauvism",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Vivid Pop Explosion",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "None",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n8n Form Trigger": {
+      "main": [
+        [
+          {
+            "node": "Route by style",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vivid Pop Explosion": {
+      "main": [
+        [
+          {
+            "node": "Resim Oluştur(together.ai)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post-Analog Glitchscape": {
+      "main": [
+        [
+          {
+            "node": "Resim Oluştur(together.ai)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resim Oluştur(together.ai)": {
+      "main": [
+        [
+          {
+            "node": "Resmi Binary Olarak Getir",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond with error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resmi Binary Olarak Getir": {
+      "main": [
+        [
+          {
+            "node": "Google Drive Yükle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Yükle": {
+      "main": [
+        [
+          {
+            "node": "Serve webpage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hyper-Surreal Escape": {
+      "main": [
+        [
+          {
+            "node": "Resim Oluştur(together.ai)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Neon Fauvism": {
+      "main": [
+        [
+          {
+            "node": "Resim Oluştur(together.ai)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Dystopia": {
+      "main": [
+        [
+          {
+            "node": "Resim Oluştur(together.ai)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "e4720050-0107-442e-a266-2008a35ae534",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b7a5152228bd4e0618ae0c30e54109671366eca51f499e85765661a68d18f02d"
+  },
+  "id": "8otR1KDUpAcj687X",
+  "tags": []
+}
